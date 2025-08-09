@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- SEO Essentials -->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+
+    <title>
+      TCS NQT Previous Year Coding Questions | Free, Interactive Prep + Online
+      AI Compiler
+    </title>
+    <meta
+      name="description"
+      content="Practice TCS NQT previous year coding questions for free. View sample questions with dates and slots, learn the pattern, and jump to CodeVault’s AI-powered online compiler for instant execution and debugging. Enter share code TCS123 inside CodeVault to access more."
+    />
+    <meta
+      name="keywords"
+      content="TCS NQT coding questions, TCS previous year questions, TCS NQT preparation, TCS NQT 2023 2024 2025, TCS NQT coding section, online compiler, AI compiler, CodeVault"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://codeevault.netlify.app/" />
+
+    <!-- Open Graph / Twitter -->
+    <meta
+      property="og:title"
+      content="TCS NQT Previous Year Coding Questions | Free + AI Compiler"
+    />
+    <meta
+      property="og:description"
+      content="Free TCS NQT coding prep with sample questions, dates, and slots. Try CodeVault’s AI compiler for instant runs and debugging. Use share code TCS123 to unlock more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="receive.png" />
+    <meta property="og:url" content="https://codeevault.netlify.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon (simple CV logo rendered with emoji fallback) -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Crect width='100%25' height='100%25' rx='24' ry='24' fill='%23131A22'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Segoe UI,Roboto,Arial' font-size='64' fill='%2329b6f6'%3ECV%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* CodeVault-like dark theme */
+        --bg: #0b1118;
+        --panel: #121923;
+        --panel-2: #0f1520;
+        --text: #e6edf3;
+        --muted: #97a3b6;
+        --brand: #29b6f6; /* cyan accent */
+        --brand-2: #7c4dff; /* purple accent */
+        --success: #22c55e;
+        --ring: 0 0 0 8px color-mix(in oklab, var(--brand) 20%, transparent);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        --radius: 14px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            1200px 800px at 120% -10%,
+            rgba(124, 77, 255, 0.18),
+            transparent 60%
+          ),
+          radial-gradient(
+            1000px 700px at -10% 120%,
+            rgba(41, 182, 246, 0.15),
+            transparent 60%
+          ),
+          var(--bg);
+        overflow-x: hidden;
+      }
+      a {
+        color: var(--brand);
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Header */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: saturate(140%) blur(10px);
+        background: color-mix(in oklab, var(--panel), transparent 35%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: 0.3px;
+      }
+      .logo {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: conic-gradient(
+          from 210deg at 60% 40%,
+          var(--brand),
+          var(--brand-2) 55%,
+          var(--brand) 100%
+        );
+        box-shadow: 0 4px 16px rgba(41, 182, 246, 0.45),
+          inset 0 0 18px rgba(255, 255, 255, 0.08);
+        position: relative;
+        isolation: isolate;
+        flex: 0 0 36px;
+      }
+      .logo:after {
+        content: "";
+        position: absolute;
+        inset: 2px;
+        border-radius: 8px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0)
+        );
+      }
+      .cta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        border: 0;
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.25s transform, 0.25s box-shadow, 0.25s background;
+        box-shadow: var(--shadow);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        color: #021017;
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 40px rgba(41, 182, 246, 0.35);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        overflow: hidden;
+      }
+      .grid-bg {
+        position: absolute;
+        inset: -2px;
+        pointer-events: none;
+        opacity: 0.25;
+        background-image: linear-gradient(
+            rgba(255, 255, 255, 0.06) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask: radial-gradient(800px 400px at 50% 0%, #000 30%, transparent 70%);
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 56px 18px 24px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .title {
+        font-size: clamp(28px, 5.2vw, 48px);
+        line-height: 1.06;
+        font-weight: 800;
+        margin: 0 0 12px;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: clamp(14px, 2.4vw, 18px);
+        max-width: 64ch;
+      }
+      .hero-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius);
+        padding: 18px;
+        transform-style: preserve-3d;
+        perspective: 800px;
+        animation: float 7s ease-in-out infinite alternate;
+      }
+      @keyframes float {
+        from {
+          transform: translateY(0) rotateX(0deg);
+        }
+        to {
+          transform: translateY(-8px) rotateX(2deg);
+        }
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(41, 182, 246, 0.12);
+        color: #bfeaff;
+        font-weight: 700;
+        border: 1px solid rgba(41, 182, 246, 0.35);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+
+      /* Key features */
+      .features {
+        max-width: 1200px;
+        margin: 12px auto;
+        padding: 0 18px 16px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .feature {
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .feature:before {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 999px;
+        right: -30px;
+        top: -30px;
+        background: radial-gradient(
+          closest-side,
+          rgba(41, 182, 246, 0.22),
+          transparent
+        );
+        filter: blur(10px);
+      }
+      .feature h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+      }
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Sample list */
+      .section {
+        max-width: 1200px;
+        margin: 12px auto;
+        padding: 12px 18px;
+      }
+      .section h2 {
+        font-size: 22px;
+        margin: 10px 0 8px;
+      }
+      .samples {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .card {
+        background: var(--panel-2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(41, 182, 246, 0.45);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(124, 77, 255, 0.14);
+        color: #d7c8ff;
+      }
+      .code {
+        background: #0a0f16;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        padding: 12px;
+        font-size: 13px;
+        overflow: auto;
+        max-height: 240px;
+      }
+      .meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      /* How-to image band */
+      .how {
+        max-width: 1200px;
+        margin: 12px auto;
+        padding: 10px 18px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 16px;
+        align-items: center;
+      }
+      .how .steps {
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        padding: 16px;
+      }
+      .steps ol {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .steps li {
+        margin: 6px 0;
+        color: var(--muted);
+      }
+      .device {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+        transform: rotate(-1.5deg);
+      }
+      .device img {
+        border-radius: 12px;
+        display: block;
+      }
+
+      /* CTA strip */
+      .cta-strip {
+        max-width: 1200px;
+        margin: 8px auto 18px;
+        padding: 12px 18px;
+      }
+      .cta-box {
+        background: linear-gradient(
+          135deg,
+          rgba(41, 182, 246, 0.16),
+          rgba(124, 77, 255, 0.16)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        padding: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .cta-box p {
+        margin: 0;
+        color: var(--text);
+      }
+      .note {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 6px;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        background: color-mix(in oklab, var(--panel), transparent 20%);
+        padding: 18px 18px 28px;
+        margin-top: 18px;
+      }
+      .foot {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .tiny {
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .links a {
+        color: #bfeaff;
+      }
+
+      /* Responsive */
+      @media (max-width: 1000px) {
+        .hero-inner,
+        .how {
+          grid-template-columns: 1fr;
+        }
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .samples {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .device {
+          transform: none;
+        }
+      }
+      @media (max-width: 640px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .samples {
+          grid-template-columns: 1fr;
+        }
+        .nav-inner {
+          gap: 10px;
+        }
+        .btn {
+          padding: 11px 14px;
+        }
+      }
+
+      /* Micro-interactions */
+      .hover-tilt {
+        transform: perspective(900px) rotateX(0deg) rotateY(0deg);
+        transition: transform 0.15s ease;
+      }
+      .hover-tilt:hover {
+        transform: perspective(900px) rotateX(2deg) rotateY(-2deg);
+      }
+      .pulse {
+        position: relative;
+      }
+      .pulse:after {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        border: 2px solid rgba(41, 182, 246, 0.5);
+        animation: ping 2.1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        pointer-events: none;
+      }
+      @keyframes ping {
+        0% {
+          opacity: 0.6;
+          transform: scale(0.98);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.18);
+        }
+      }
+      .sr-only {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      /* Add this to your existing responsive section */
+      @media (max-width: 1000px) {
+        .hero-inner,
+        .how {
+          grid-template-columns: 1fr;
+        }
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .samples {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .device {
+          transform: none;
+        }
+
+        /* Fix for TCS NQT Pattern section specifically */
+        .section .features {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+
+      @media (max-width: 640px) {
+        /* Hide "View Samples" button on mobile */
+        #scrollSamplesBtn {
+          display: none;
+        }
+
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .samples {
+          grid-template-columns: 1fr;
+        }
+        .nav-inner {
+          gap: 10px;
+        }
+        .btn {
+          padding: 11px 14px;
+        }
+
+        /* Fix for TCS NQT Pattern section specifically */
+        .section .features {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="nav">
+      <div class="nav-inner">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <span>TCS NQT • CodeVault</span>
+        </div>
+        <div class="cta">
+          <button
+            class="btn btn-ghost"
+            id="scrollSamplesBtn"
+            aria-label="View sample questions"
+          >
+            View Samples
+          </button>
+          <button
+            class="btn btn-primary pulse"
+            id="continueBtn"
+            aria-label="Continue to CodeVault"
+          >
+            Continue to CodeVault →
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Intro">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="pill">Free to use • No paywall</div>
+          <h1 class="title">
+            TCS NQT Previous Year Coding Questions — Practice, Learn, and Run
+            Instantly
+          </h1>
+          <p class="subtitle">
+            Explore real TCS NQT coding problems with slot-wise tags and clean
+            explanations, then jump into an AI‑powered online compiler for
+            instant execution, error fixes, and optimization tips. No sign‑up
+            required to preview samples; continue to CodeVault to unlock the
+            full set with the share code <strong>TCS123</strong>.
+          </p>
+          <div
+            style="margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap"
+          >
+            <a class="btn btn-primary" id="ctaTop">Try CodeVault Free</a>
+            <a class="btn btn-ghost" href="#how">How to unlock with TCS123</a>
+          </div>
+        </div>
+
+        <!-- Animated preview card -->
+        <div class="hero-card hover-tilt" aria-label="Feature preview">
+          <div class="badge">AI Compiler</div>
+          <div class="code" aria-label="Sample code">
+            <pre>
+// Example: Smallest Missing Positive
+// 2023 - September Day 1 - Slot 1
+int firstMissingPositive(vector&lt;int&gt;&amp; a){
+  int n=a.size();
+  for(int i=0;i&lt;n;i++){
+    while(a[i]&gt;0 &amp;&amp; a[i]&lt;=n &amp;&amp; a[a[i]-1]!=a[i])
+      swap(a[i], a[a[i]-1]);
+  }
+  for(int i=0;i&lt;n;i++) if(a[i]!=i+1) return i+1;
+  return n+1;
+}
+</pre
+            >
+          </div>
+          <div class="meta">
+            <span>Instant run</span> • <span>Auto‑debug</span> •
+            <span>Optimize</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key features -->
+    <section aria-label="Highlights">
+      <div class="features">
+        <article class="feature">
+          <h3>Focus: Coding Section</h3>
+          <p>
+            Curated questions from recent TCS NQT slots with constraints, edge
+            cases, and testable I/O.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>AI Assistance</h3>
+          <p>
+            Get human‑style explanations, fix runtime errors, and receive
+            optimized solutions instantly in the CodeVault editor.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>One‑Tap Import</h3>
+          <p>
+            Inside CodeVault, press Receive and enter <strong>TCS123</strong> to
+            add the complete TCS set to your vault.
+          </p>
+        </article>
+        <article class="feature">
+          <h3>Free & Fast</h3>
+          <p>
+            Preview here for free and switch to the WebAssembly‑powered compiler
+            for zero‑wait execution.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Samples -->
+    <section
+      class="section"
+      id="samples"
+      aria-label="Sample previous year questions"
+    >
+      <h2>Sample TCS NQT Coding Questions</h2>
+      <div class="samples">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="meta">
+            <span class="badge">2023 • September • Day 1 • Slot 1</span>
+          </div>
+          <h3>Problem: Make Array Beautiful</h3>
+          <p class="tiny">
+            Given an array, perform minimum operations to make adjacent elements
+            alternate in sign.
+          </p>
+          <div class="code">
+            <pre>
+Input:
+5
+-1 3 -2 4 5
+
+Output:
+1
+
+Explanation:
+Change last 5 → -5.</pre
+            >
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="meta">
+            <span class="badge">2023 • September • Day 2 • Slot 2</span>
+          </div>
+          <h3>Problem: Minimum Swaps to Group Ones</h3>
+          <p class="tiny">
+            Count minimum swaps to group all 1s together in a binary array.
+          </p>
+          <div class="code">
+            <pre>
+Input:
+7
+1 0 1 0 1 0 0
+
+Output:
+1</pre
+            >
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="meta">
+            <span class="badge">2022 • October • Day 1 • Slot 1</span>
+          </div>
+          <h3>Problem: Balanced Brackets with Wildcards</h3>
+          <p class="tiny">
+            '?' can become '(' or ')'. Determine if a valid sequence is
+            possible.
+          </p>
+          <div class="code">
+            <pre>
+Input:
+(?))??
+
+Output:
+YES</pre
+            >
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pattern overview (concise; highlights coding weight) -->
+    <section class="section" aria-label="TCS NQT pattern">
+      <h2>TCS NQT Pattern (Quick View)</h2>
+      <div class="features" style="grid-template-columns: repeat(4, 1fr)">
+        <div class="feature">
+          <h3>Aptitude</h3>
+          <p>Quantitative basics and problem solving.</p>
+        </div>
+        <div class="feature">
+          <h3>Verbal</h3>
+          <p>Reading comprehension and grammar fundamentals.</p>
+        </div>
+        <div class="feature">
+          <h3>Reasoning</h3>
+          <p>Logical and analytical thinking questions.</p>
+        </div>
+        <div class="feature">
+          <h3>Coding (Most Impact)</h3>
+          <p>
+            <strong>Highest weight</strong> for developer roles—practice here
+            and run instantly with AI help.
+          </p>
+        </div>
+      </div>
+      <p class="note">
+        Tip: For the complete TCS coding vault inside CodeVault, press Receive
+        and enter <strong>TCS123</strong>.
+      </p>
+    </section>
+
+    <!-- How-to with single screenshot (placed mid-page, not full width) -->
+    <section
+      class="how"
+      id="how"
+      aria-label="How to unlock questions with code"
+    >
+      <div class="steps">
+        <h2>Unlock All TCS Sets in CodeVault (Free)</h2>
+        <ol>
+          <li>Click <em>Continue to CodeVault</em> anywhere on this page.</li>
+          <li>In the top bar of CodeVault, hit <strong>Receive</strong>.</li>
+          <li>
+            Enter the share code <strong>TCS123</strong> to import the previous
+            year coding questions.
+          </li>
+          <li>
+            Open any question and use the AI Compiler to run, debug, and
+            optimize your code.
+          </li>
+        </ol>
+        <div class="note">
+          Images are for reference only and used once on this page to keep
+          things fast and SEO‑friendly.
+        </div>
+      </div>
+      <figure class="device hover-tilt">
+        <!-- Use your attached images once (choose one composite or the receive screen).
+           You can swap src between 'receive.jpg' or 'TCS123.jpg' as you prefer. -->
+        <img
+          src="receive.png"
+          alt="CodeVault Receive dialog showing where to enter the TCS123 share code"
+          width="640"
+          height="420"
+          loading="lazy"
+        />
+        <figcaption class="tiny" style="margin-top: 6px">
+          Inside CodeVault: Press Receive → enter code TCS123 → import TCS
+          coding sets.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta-strip" aria-label="Join CodeVault">
+      <div class="cta-box hover-tilt">
+        <p>
+          <strong>Practice smarter:</strong> Try the AI‑powered compiler,
+          instant execution, and guided debugging in CodeVault. Free to start.
+        </p>
+        <div>
+          <button class="btn btn-primary" id="ctaBottom">
+            Continue to CodeVault
+          </button>
+          <span class="note"
+            >Use share code <strong>TCS123</strong> after opening
+            CodeVault.</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="foot">
+        <div class="brand">
+          <span
+            class="logo"
+            aria-hidden="true"
+            style="width: 28px; height: 28px"
+          ></span>
+          <span>CodeVault Prep</span>
+        </div>
+        <div class="links">
+          <a href="#samples">Samples</a>
+          <a href="#how">How to Unlock</a>
+          <a href="#" id="footerGo">Try CodeVault</a>
+        </div>
+        <div class="tiny">
+          © <span id="year"></span> CodeVault Prep • Free learning resource for
+          TCS NQT coding section
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Routing to CodeVault (not forced; clearly visible)
+      const codeVaultURL = "https://codeevault.netlify.app/";
+      const go = () => (window.location.href = codeVaultURL);
+      document.getElementById("continueBtn").addEventListener("click", go);
+      document.getElementById("ctaTop").addEventListener("click", go);
+      document.getElementById("ctaBottom").addEventListener("click", go);
+      document.getElementById("footerGo").addEventListener("click", (e) => {
+        e.preventDefault();
+        go();
+      });
+
+      // Smooth scroll to samples
+      document
+        .getElementById("scrollSamplesBtn")
+        .addEventListener("click", () => {
+          document
+            .getElementById("samples")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+      // Current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Light tilt follow for hero card
+      (function () {
+        const tiltEls = document.querySelectorAll(".hover-tilt");
+        tiltEls.forEach((el) => {
+          const rect = () => el.getBoundingClientRect();
+          el.addEventListener("mousemove", (e) => {
+            const r = rect();
+            const cx = r.left + r.width / 2;
+            const cy = r.top + r.height / 2;
+            const dx = (e.clientX - cx) / (r.width / 2);
+            const dy = (e.clientY - cy) / (r.height / 2);
+            el.style.transform = `perspective(900px) rotateX(${(
+              -dy * 4
+            ).toFixed(2)}deg) rotateY(${(dx * 4).toFixed(2)}deg)`;
+          });
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "";
+          });
+        });
+      })();
+
+      // Prefetch hint for performance
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = codeVaultURL;
+      document.head.appendChild(link);
+    </script>
+  </body>
+</html>
