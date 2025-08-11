@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tcs-nqt.netlify.app/sitemap.xml
